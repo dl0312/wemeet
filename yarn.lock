@@ -836,6 +836,60 @@
   version "9.0.1"
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-9.0.1.tgz#c27b391d8457d1e893f1eddeaf5e5412d12ffbb5"
 
+"@egjs/axes@^2.5.13":
+  version "2.5.14"
+  resolved "https://registry.yarnpkg.com/@egjs/axes/-/axes-2.5.14.tgz#01d7c3ec57ac231b042df66d993a7938e2b8f038"
+  dependencies:
+    "@egjs/component" "^2.1.2"
+    "@egjs/hammerjs" "^2.0.15"
+
+"@egjs/children-differ@0.0.0":
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/@egjs/children-differ/-/children-differ-0.0.0.tgz#f841aaac89f98082e6a0250f60f55babee95dbe4"
+  dependencies:
+    "@egjs/list-differ" "^0.0.1"
+
+"@egjs/component@^2.1.2":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@egjs/component/-/component-2.1.2.tgz#c466a0a6fc6ba2d479814dcbe6ee4643c25a2e5b"
+
+"@egjs/flicking-plugins@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@egjs/flicking-plugins/-/flicking-plugins-3.1.0.tgz#bcedb0e4512209af997682ef225f31a260d152f8"
+  dependencies:
+    "@egjs/flicking" "^3.1.1"
+
+"@egjs/flicking@^3.1.1", "@egjs/flicking@^3.2.0":
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/@egjs/flicking/-/flicking-3.3.2.tgz#eeb2e48ea679bd23c8e2b159652e71ca2ee362e7"
+  dependencies:
+    "@egjs/axes" "^2.5.13"
+    "@egjs/component" "^2.1.2"
+
+"@egjs/hammerjs@^2.0.15":
+  version "2.0.15"
+  resolved "https://registry.yarnpkg.com/@egjs/hammerjs/-/hammerjs-2.0.15.tgz#b6ef675540d275f7445647a64413af425b97bb9a"
+  dependencies:
+    "@types/hammerjs" "^2.0.36"
+
+"@egjs/list-differ@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@egjs/list-differ/-/list-differ-0.0.1.tgz#5ca258259eeb1869049af8aaf386abcd51d7cc61"
+
+"@egjs/react-children-differ@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@egjs/react-children-differ/-/react-children-differ-0.0.2.tgz#4ee92f489f98f91bf0bb2d16ed86def792687e89"
+  dependencies:
+    "@egjs/children-differ" "0.0.0"
+
+"@egjs/react-flicking@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@egjs/react-flicking/-/react-flicking-3.0.0.tgz#0d454dbbf3ba1c3df498916abc007f0b34a47da3"
+  dependencies:
+    "@egjs/flicking" "^3.2.0"
+    "@egjs/list-differ" "^0.0.1"
+    "@egjs/react-children-differ" "^0.0.2"
+
 "@emotion/is-prop-valid@^0.8.1":
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-0.8.1.tgz#6fb3ae2d24f07c8cd090f233e45771d9cd826d48"
@@ -1163,6 +1217,10 @@
   resolved "https://registry.yarnpkg.com/@types/babel__traverse/-/babel__traverse-7.0.7.tgz#2496e9ff56196cc1429c72034e07eab6121b6f3f"
   dependencies:
     "@babel/types" "^7.3.0"
+
+"@types/hammerjs@^2.0.36":
+  version "2.0.36"
+  resolved "https://registry.yarnpkg.com/@types/hammerjs/-/hammerjs-2.0.36.tgz#17ce0a235e9ffbcdcdf5095646b374c2bf615a4c"
 
 "@types/history@*":
   version "4.7.2"
@@ -8063,6 +8121,15 @@ react-transition-group@^2.6.1:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
+
+react-transition-group@^4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.2.2.tgz#8b5252410180c27fd7eebf50b185256b41799b16"
+  dependencies:
+    "@babel/runtime" "^7.4.5"
+    dom-helpers "^3.4.0"
+    loose-envify "^1.4.0"
+    prop-types "^15.6.2"
 
 react@^16.8.6:
   version "16.8.6"

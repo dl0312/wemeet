@@ -6,13 +6,13 @@ export const GlobalStyle = createGlobalStyle`
   ${reset};
   @import url("https://use.fontawesome.com/releases/v5.8.2/css/all.css");
   @import url("https://cdnjs.cloudflare.com/ajax/libs/antd/3.18.1/antd.min.css");
-  @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic|Playfair+Display|Do+Hyeon|Song+Myung|Thasadith|Nanum+Myeongjo|Nanum+Pen+Script');
+  @import url('https://fonts.googleapis.com/css?family=Ubuntu|Nanum+Gothic|Playfair+Display|Do+Hyeon|Song+Myung|Thasadith|Nanum+Myeongjo|Nanum+Pen+Script');
   * {
       box-sizing: border-box;
   }
 
   body{
-    font-family: 'Nanum Gothic', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-size: ${fontSize.normalFontSize};
     overflow-x: hidden;
     background-color: ${color.bgColor};

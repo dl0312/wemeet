@@ -24,7 +24,7 @@ const MapContainer = props => {
       }
       markers={places}
       loadingElement={loadingElement || <div style={{ height: `100%` }} />}
-      containerElement={containerElement || <div style={{ height: "80vh" }} />}
+      containerElement={<div style={{ height: "100vh", width: "100vw" }} />}
       mapElement={mapElement || <div style={{ height: `100%` }} />}
       defaultCenter={defaultCenter || { lat: 25.798939, lng: -80.291409 }}
       defaultZoom={defaultZoom || 11}
