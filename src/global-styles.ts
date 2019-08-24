@@ -90,4 +90,7 @@ export const GlobalStyle = createGlobalStyle`
       opacity: 1;
     }
   }
+  .ant-checkbox-wrapper+.ant-checkbox-wrapper {
+    margin-left: 0px;
+  }
 `;

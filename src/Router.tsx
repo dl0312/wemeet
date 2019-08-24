@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { BackTop } from "antd";
 import Select from "./routes/Select";
 import Register from "./routes/Register";
+import Home from "./routes/Home";
 import Tracking from "./routes/Tracking";
 import { Switch, Route } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
@@ -40,7 +41,8 @@ const Router: React.SFC<any> = ({ location }) => (
           <Switch>
             <Route path="/register" component={Register} />
             <Route path="/tracking" component={Tracking} />
-            <Route path="/" component={Select} />
+            <Route path="/select" component={Select} />
+            <Route path="/" component={Home} />
           </Switch>
         </CSSTransition>
       </TransitionGroup>

@@ -222,7 +222,7 @@ class Select extends React.Component<Props, State> {
           gap={25}
           moveType={{ type: "snap", count: 1 }}
           collectStatistics={true}
-          plugins={Fade}
+          plugins={[new Fade()]}
         >
           {" "}
           {cards.map((card, index) => (

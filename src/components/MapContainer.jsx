@@ -1,35 +1,48 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
-import Map from "./Map";
+import {
+  Map,
+  InfoWindow,
+  Marker,
+  GoogleApiWrapper,
+  Circle,
+  Polyline
+} from "google-maps-react";
+export class MapContainer extends Component {
+  onMarkerClick = () => {
+    console.log("mark click");
+  };
 
-const googleMapsApiKey = "AIzaSyAJcBecQPTrNS6dvx-ILxU2ETgsJDP4hdY";
-
-const MapContainer = props => {
-  const { places } = props;
-
-  const {
-    loadingElement,
-    containerElement,
-    mapElement,
-    defaultCenter,
-    defaultZoom
-  } = props;
-
-  return (
-    <Map
-      googleMapURL={
-        "https://maps.googleapis.com/maps/api/js?key=" +
-        googleMapsApiKey +
-        "&libraries=geometry,drawing,places"
-      }
-      markers={places}
-      loadingElement={loadingElement || <div style={{ height: `100%` }} />}
-      containerElement={<div style={{ height: "100vh", width: "100vw" }} />}
-      mapElement={mapElement || <div style={{ height: `100%` }} />}
-      defaultCenter={defaultCenter || { lat: 30.24148, lng: 120.337197 }}
-      defaultZoom={defaultZoom || 30}
-    />
-  );
-};
-
+  render() {
+    var bounds = new this.props.google.maps.LatLngBounds();
+    for (var i = 0; i < this.props.places.length; i++) {
+      bounds.extend(this.props.places[i]);
+    }
+    return (
+      <Map
+        google={this.props.google}
+        zoom={this.props.defaultZoom}
+        initialCenter={this.props.defaultCenter}
+        bounds={bounds}
+      >
+        <Marker
+          onClick={this.onMarkerClick}
+          name={"Current location"}
+          icon={{
+            url:
+              "https://www.fourjay.org/myphoto/f/2/29501_person-icon-png.png",
+            anchor: new this.props.google.maps.Point(20, 20),
+            scaledSize: new this.props.google.maps.Size(40, 40)
+          }}
+        />
+        <Polyline
+          path={this.props.places}
+          strokeColor="rgba(23, 198, 165,1)"
+          strokeOpacity={0.5}
+          strokeWeight={4}
+        />
+      </Map>
+    );
+  }
+}
 export default MapContainer;
