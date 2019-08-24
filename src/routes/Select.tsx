@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Dog1 from "../assets/dog1.jpg";
+import Dog4 from "../assets/dog4.jpg";
 import Dog2 from "../assets/dog2.jpg";
 import Dog3 from "../assets/dog3.jpeg";
 import {
@@ -27,7 +27,7 @@ const AnimalCard = styled.div<{ imageSrc: string }>`
   background: url(${({ imageSrc }) => imageSrc});
   background-position: center center;
   background-size: auto 100%;
-  width: 20rem;
+  width: 18rem;
   min-height: 25rem;
   height: 100%;
   color: white;
@@ -136,7 +136,7 @@ const cards = [
   {
     place: "Pyengcon-dong, Anyang-si, Geonggi-do",
     time: "13:35pm",
-    imageSrc: Dog1
+    imageSrc: Dog4
   },
   {
     place: "Pyengcon-dong, Anyang-si, Geonggi-do",
@@ -213,16 +213,16 @@ class Select extends React.Component<Props, State> {
           inputType={["touch", "mouse"]}
           thresholdAngle={45}
           bounce={10}
-          autoResize={false}
+          autoResize={true}
           adaptive={false}
           bound={false}
           overflow={true}
           hanger={"0%"}
           anchor={"0%"}
-          gap={25}
+          gap={10}
           moveType={{ type: "snap", count: 1 }}
           collectStatistics={true}
-          plugins={[new Fade()]}
+          plugins={[new Fade("", 0.5)]}
         >
           {" "}
           {cards.map((card, index) => (

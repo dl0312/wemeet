@@ -10,37 +10,42 @@ import { Fade } from "@egjs/flicking-plugins";
 import styled from "styled-components";
 import { Checkbox } from "antd";
 import { RouteChildrenProps } from "react-router";
+import ChooseLocation from "../assets/chooseLocation.png";
+import ChooseTime from "../assets/chooseTime.png";
 
 interface Props extends RouteChildrenProps {}
 
-interface State {}
+interface State {
+  index: number;
+}
 
 const Container = styled.div`
   width: 100%;
   height: 100vh;
-  padding: 2rem;
+  padding: 3rem;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   flex-direction: column;
 `;
 
-const Title = styled.div`
-  font-size: 2.5rem;
-  font-weight: 700;
-`;
-
 const Subtitle = styled.div`
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size: 2.2rem;
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+  line-height: 1.3;
 `;
 
 const Button = styled.div`
   align-self: center;
   font-size: 1.5rem;
-  border-radius: 1rem;
-  padding: 0.5rem 0.8rem;
+  border-radius: 3rem;
+  padding: 0.8rem 1rem;
   cursor: pointer;
+  width: 15rem;
+  box-shadow: 0px 0px 20px 0px rgba(23, 198, 165, 0.5);
+  margin-bottom: 1rem;
+  text-align: center;
 `;
 
 const TopSection = styled.div`
@@ -58,14 +63,18 @@ const BottomSection = styled.div`
 `;
 
 const CustomCheckbox = styled(Checkbox)`
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   font-size: 1.5rem;
 `;
+
+const FormImage = styled.img``;
 
 class Register extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = {};
+    this.state = {
+      index: 0
+    };
   }
   render() {
     return (
@@ -90,7 +99,7 @@ class Register extends React.Component<Props, State> {
         threshold={40}
         duration={100}
         panelEffect={(x: number) => 1 - Math.pow(1 - x, 3)}
-        defaultIndex={0}
+        defaultIndex={this.state.index}
         inputType={["touch", "mouse"]}
         thresholdAngle={45}
         bounce={10}
@@ -100,64 +109,63 @@ class Register extends React.Component<Props, State> {
         overflow={true}
         hanger={"50%"}
         anchor={"50%"}
-        gap={25}
+        gap={0}
         moveType={{ type: "snap", count: 1 }}
         collectStatistics={true}
         plugins={[new Fade()]}
       >
         <Container>
           <TopSection>
-            <Title>
-              Did you
+            <Subtitle>
+              What kind of
               <br />
-              lose your pet?
-            </Title>
-          </TopSection>
-          <BottomSection>
-            <Button
-              style={{ color: "white", background: "rgba(23, 198, 165, 1)" }}
-            >
-              Make a form
-            </Button>
-            <Button
-              style={{ background: "white", color: "rgba(23, 198, 165, 1)" }}
-            >
-              Sign In
-            </Button>
-          </BottomSection>
-        </Container>
-
-        <Container>
-          <TopSection>
-            <Subtitle>What kind of pet did you lose?</Subtitle>
+              pet did you lose?
+            </Subtitle>
             <CustomCheckbox checked={true}>Charles</CustomCheckbox>
             <CustomCheckbox>Wang Wang</CustomCheckbox>
           </TopSection>
           <BottomSection>
             <Button
+              onClick={() => {
+                this.setState({ index: this.state.index + 1 });
+              }}
               style={{ color: "white", background: "rgba(23, 198, 165, 1)" }}
             >
-              Sign In
+              NEXT
             </Button>
           </BottomSection>
         </Container>
 
         <Container>
           <TopSection>
-            <Subtitle>Where did you lose?</Subtitle>
+            <Subtitle>
+              Where
+              <br />
+              did you lose?
+            </Subtitle>
           </TopSection>
+          <FormImage src={ChooseLocation} />
           <BottomSection>
             <Button
+              onClick={() => {
+                console.log(this.state.index);
+                this.setState({ index: this.state.index + 1 });
+              }}
               style={{ color: "white", background: "rgba(23, 198, 165, 1)" }}
             >
-              Sign In
+              NEXT
             </Button>
           </BottomSection>
         </Container>
         <Container>
           <TopSection>
-            <Subtitle>What time did you lose?</Subtitle>
+            <Subtitle>
+              What time
+              <br />
+              did you lose?
+            </Subtitle>
           </TopSection>
+          <FormImage src={ChooseTime} />
           <BottomSection>
             <Button
               style={{ color: "white", background: "rgba(23, 198, 165, 1)" }}

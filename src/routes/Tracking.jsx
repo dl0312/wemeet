@@ -51,30 +51,42 @@ const cards = [
   {
     place: "Pyengcon-dong, Anyang-si, Geonggi-do",
     time: "13:35pm",
-    imageSrc: Dog1
+    imageSrc: Dog1,
+    color: "#00d1a9"
   },
   {
     place: "Pyengcon-dong, Anyang-si, Geonggi-do",
     time: "13:35pm",
-    imageSrc: Dog2
+    imageSrc: Dog2,
+    color: "rgba(112, 158, 252,1)"
   },
   {
     place: "Pyengcon-dong, Anyang-si, Geonggi-do",
     time: "13:35pm",
-    imageSrc: Dog3
+    imageSrc: Dog3,
+    color: "rgba(252, 192, 112, 1)"
   }
 ];
 
-const UpperSection = styled.div``;
-const BottomSection = styled.div`
+const UpperSection = styled.div`
   padding: 1rem;
-  padding-bottom: 2rem;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+`;
+const BottomSection = styled.div`
+  padding: 0.5rem;
+  background: white;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Location = styled.div`
   margin-bottom: 0.5rem;
+  color: black;
 `;
 
 const LocationIcon = styled.i`
@@ -85,8 +97,15 @@ const LocationTitle = styled.span`
   font-size: 0.8rem;
 `;
 
+const ColorBall = styled.div`
+  border-radius: 100%;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+`;
+
 const Time = styled.span`
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 700;
 `;
 
@@ -96,22 +115,22 @@ const FlickerContainer = styled.div`
   bottom: 1rem;
 `;
 
-const googleMapsApiKey = "AIzaSyDWu1UepHkf-fBqhfizX4zf1nBpl3EwDb8";
+const googleMapsApiKey = "AIzaSyA1eXxSrO4j576TyyTHplmUopdD7hEnItI";
 
 class Tracking extends Component {
   constructor(props) {
     super(props);
     this.state = {
       currentIndex: 0,
-      places: [...markers[0]]
+      places: [...markers[0].data]
     };
   }
   componentDidMount = () => {
     console.log(this.state.places);
-    for (let i = 0; i < markers[this.state.currentIndex].length; i++) {
+    for (let i = 0; i < markers[this.state.currentIndex].data.length; i++) {
       setTimeout(() => {
         this.setState({
-          places: [...markers[this.state.currentIndex].slice(0, i)]
+          places: [...markers[this.state.currentIndex].data.slice(0, i)]
         });
       }, i * 1000);
     }
@@ -123,7 +142,7 @@ class Tracking extends Component {
       for (let i = 0; i < 9; i++) {
         setTimeout(() => {
           this.setState({
-            places: [...markers[this.state.currentIndex].slice(0, i)]
+            places: [...markers[this.state.currentIndex].data.slice(0, i)]
           });
         }, i * 1000);
       }
@@ -134,7 +153,8 @@ class Tracking extends Component {
       <>
         <MapContainer
           key={this.state.currentIndex}
-          defaultCenter={markers[this.state.currentIndex][4]}
+          lineColor={markers[this.state.currentIndex].color}
+          defaultCenter={markers[this.state.currentIndex].data[4]}
           defaultZoom={17}
           places={this.state.places}
           google={this.props.google}
@@ -172,13 +192,15 @@ class Tracking extends Component {
           >
             {cards.map((card, index) => (
               <AnimalCard imageSrc={card.imageSrc} key={index}>
-                <UpperSection />
+                <UpperSection>
+                  <ColorBall style={{ background: card.color }} />
+                  <Time>{card.time}</Time>
+                </UpperSection>
                 <BottomSection>
                   <Location>
                     <LocationIcon className="fas fa-location-arrow" />
                     <LocationTitle>{card.place}</LocationTitle>
                   </Location>
-                  <Time>{card.time}</Time>
                 </BottomSection>
               </AnimalCard>
             ))}

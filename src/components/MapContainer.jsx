@@ -37,7 +37,7 @@ export class MapContainer extends Component {
         />
         <Polyline
           path={this.props.places}
-          strokeColor="rgba(23, 198, 165,1)"
+          strokeColor={this.props.lineColor}
           strokeOpacity={0.5}
           strokeWeight={4}
         />
