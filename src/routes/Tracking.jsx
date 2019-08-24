@@ -108,7 +108,7 @@ class Tracking extends Component {
   }
   componentDidMount = () => {
     console.log(this.state.places);
-    for (let i = 0; i < 9; i++) {
+    for (let i = 0; i < markers[this.state.currentIndex].length; i++) {
       setTimeout(() => {
         this.setState({
           places: [...markers[this.state.currentIndex].slice(0, i)]
