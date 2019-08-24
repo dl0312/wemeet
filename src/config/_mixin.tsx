@@ -19,7 +19,7 @@ export const websiteTitle = "👀 Movisualization";
 export const headerHeight = "6rem";
 
 export const color = {
-  bgColor: "#dae3f7",
+  bgColor: "white",
   fontColor: "#121212",
   mainColor: "skyblue",
   html: "#f16524",

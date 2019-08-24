@@ -1,15 +1,22 @@
 import React, { Component } from "react";
 import MapContainer from "../components/MapContainer";
-
-const places = [
-  { latitude: 25.8103146, longitude: -80.1751609 },
-  { latitude: 27.9947147, longitude: -82.5943645 },
-  { latitude: 28.4813018, longitude: -81.4387899 }
-];
-
+import { markers1 } from "../data/markers";
 class Tracking extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      places: markers1,
+      index: 1
+    };
+  }
+  componentDidMount = () => {
+    setInterval(() => {
+      const { index } = this.state;
+      this.setState({ places: markers1.slice(0, index), index: index + 1 });
+    }, 1000);
+  };
   render() {
-    return <MapContainer defaultZoom={7} places={places} />;
+    return <MapContainer defaultZoom={14} places={this.state.places} />;
   }
 }
 

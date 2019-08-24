@@ -9,14 +9,12 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { withRouter } from "react-router";
 
 const Container = styled.div`
-  position: relative;
-  z-index: 2;
   min-height: 100vh;
   .fade-enter {
     opacity: 0.01;
   }
 
-  .fade-enter.fade-enter-active {
+  .fade-enter .fade-enter-active {
     opacity: 1;
     transition: opacity 300ms ease-in;
   }
@@ -25,7 +23,7 @@ const Container = styled.div`
     opacity: 1;
   }
 
-  .fade-exit.fade-exit-active {
+  .fade-exit .fade-exit-active {
     opacity: 0.01;
     transition: opacity 300ms ease-in;
   }

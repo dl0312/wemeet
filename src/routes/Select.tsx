@@ -11,6 +11,7 @@ import {
 } from "@egjs/flicking";
 import Flicking from "@egjs/react-flicking";
 import { Fade } from "@egjs/flicking-plugins";
+import { RouteComponentProps } from "react-router";
 
 const Container = styled.section`
   padding: 2rem;
@@ -19,19 +20,14 @@ const Container = styled.section`
 const Title = styled.header`
   font-size: 2.5rem;
   font-weight: bolder;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 `;
-
-// const AnimalCardList = styled.div`
-//   display: flex;
-//   align-items: flex-start;
-// `;
 
 const AnimalCard = styled.div<{ imageSrc: string }>`
   background: url(${({ imageSrc }) => imageSrc});
   background-position: center center;
   background-size: auto 100%;
-  width: 100%;
+  width: 20rem;
   min-height: 25rem;
   height: 100%;
   color: white;
@@ -39,32 +35,49 @@ const AnimalCard = styled.div<{ imageSrc: string }>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-shadow: 0 0 20px 2px rgba(110, 110, 110, 0.5);
+`;
+
+const MapButton = styled.div`
+  position: absolute;
+  bottom: 0px;
+  transform: translateY(50%);
+  right: 1rem;
+  z-index: 2;
+  background: #00d1a9;
+  border-radius: 100%;
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 0 17px 0px rgba(0, 0, 0, 0.5);
 `;
 
 const MapIcon = styled.i`
-  position: absolute;
-  bottom: -1rem;
-  right: 1rem;
-  border-radius: 100%;
+  color: white;
+  font-size: 2rem;
 `;
 
 const TagContainer = styled.div`
   display: flex;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 `;
 
 const Tag = styled.div<{ bgColor: string; fontColor: string }>`
   border-radius: 2rem;
   background: ${({ bgColor }) => bgColor};
   color: ${({ fontColor }) => fontColor};
-  padding: 0.5rem;
+  padding: 0.5rem 0.7rem;
+  font-size: 1rem;
   margin-right: 0.5rem;
 `;
 const UpperSection = styled.div``;
 const BottomSection = styled.div`
   padding: 1rem;
+  padding-bottom: 2rem;
   background: rgba(0, 0, 0, 0.4);
-
   border-radius: 1rem;
 `;
 
@@ -77,7 +90,7 @@ const LocationIcon = styled.i`
 `;
 
 const LocationTitle = styled.span`
-  font-size: 1rem;
+  font-size: 0.8rem;
 `;
 
 const Time = styled.span`
@@ -85,11 +98,38 @@ const Time = styled.span`
   font-weight: 700;
 `;
 
-interface Props {}
+const StartButton = styled.div`
+  width: 10rem;
+  min-height: 25rem;
+  height: 100%;
+  background: white;
+  border-radius: 1rem;
+  padding: 3rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 0 17px 0px rgba(187, 187, 187, 0.5);
+  cursor: pointer;
+`;
+
+const StartTitle = styled.div`
+  font-size: 1.5rem;
+  line-height: 1.2;
+  color: rgba(23, 198, 165, 1);
+`;
+
+const ArrowIcon = styled.div`
+  font-size: 3rem;
+  color: rgba(23, 198, 165, 1);
+`;
+
+interface Props extends RouteComponentProps {}
 
 interface State {
   name: string;
   place: string;
+  time: string;
 }
 
 const cards = [
@@ -115,11 +155,12 @@ class Select extends React.Component<Props, State> {
     super(props);
     this.state = {
       name: "Chales",
-      place: "Pyengcon-dong"
+      place: "Pyengcon-dong",
+      time: "13:35pm"
     };
   }
   render() {
-    const { name, place } = this.state;
+    const { name, place, time } = this.state;
     return (
       <Container>
         <Title>
@@ -139,6 +180,12 @@ class Select extends React.Component<Props, State> {
             fontColor="rgba(112, 158, 252,1)"
           >
             {place}
+          </Tag>
+          <Tag
+            bgColor="rgba(252, 192, 112, 0.15)"
+            fontColor="rgba(252, 192, 112, 1)"
+          >
+            {time}
           </Tag>
         </TagContainer>
         <Flicking
@@ -168,19 +215,21 @@ class Select extends React.Component<Props, State> {
           bounce={10}
           autoResize={false}
           adaptive={false}
-          zIndex={2000}
           bound={false}
-          overflow={false}
-          hanger={"50%"}
-          anchor={"50%"}
-          gap={50}
+          overflow={true}
+          hanger={"0%"}
+          anchor={"0%"}
+          gap={25}
           moveType={{ type: "snap", count: 1 }}
           collectStatistics={true}
           plugins={Fade}
         >
+          {" "}
           {cards.map((card, index) => (
-            <AnimalCard imageSrc={card.imageSrc}>
-              <MapIcon />
+            <AnimalCard imageSrc={card.imageSrc} key={index}>
+              <MapButton>
+                <MapIcon className="fas fa-paw" />
+              </MapButton>
               <UpperSection />
               <BottomSection>
                 <Location>
@@ -191,6 +240,14 @@ class Select extends React.Component<Props, State> {
               </BottomSection>
             </AnimalCard>
           ))}
+          <StartButton onClick={() => this.props.history.push("/tracking")}>
+            <StartTitle>
+              Start
+              <br />
+              Tracking
+            </StartTitle>
+            <ArrowIcon className="fas fa-long-arrow-alt-right" />
+          </StartButton>
         </Flicking>
       </Container>
     );

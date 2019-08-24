@@ -26,8 +26,8 @@ const MapContainer = props => {
       loadingElement={loadingElement || <div style={{ height: `100%` }} />}
       containerElement={<div style={{ height: "100vh", width: "100vw" }} />}
       mapElement={mapElement || <div style={{ height: `100%` }} />}
-      defaultCenter={defaultCenter || { lat: 25.798939, lng: -80.291409 }}
-      defaultZoom={defaultZoom || 11}
+      defaultCenter={defaultCenter || { lat: 30.24148, lng: 120.337197 }}
+      defaultZoom={defaultZoom || 30}
     />
   );
 };
