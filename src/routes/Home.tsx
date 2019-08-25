@@ -76,7 +76,7 @@ export default class Home extends React.Component<Props, State> {
           <Button
             style={{ background: "white", color: "rgba(23, 198, 165, 1)" }}
           >
-            Sign In
+            Sign Up
           </Button>
         </BottomSection>
       </Container>

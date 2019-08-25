@@ -1,38 +1,10 @@
-# 🌌 Frontend Boilerplate with React, Redux, TypeScript
+# WeMeet
 
-Ideal method for creating React apps from beginning
+## 기능구현
 
-## 👀 Contains
-| Library                | Version    |
-| ---------------------- | ---------- |
-| react (with **Hooks**) | **^16.8**  |
-| react-dom              | **^16.8**  |
-| react-redux            | **^7.1**   |
-| react-router           | **^5.0**   |
-| react-scripts          | **^3.0**   |
-| redux                  | **^4.0**   |
-| redux-actions          | **^2.6.5** |
-| styled-components      | **^4.3**   |
-| typescript             | **^3.5**   |
-
-## Installation
-
-```
-$ yarn
-```
-
-## Running
-
-```
-$ yarn start
-```
-
-## Build
-
-```
-$ yarn build
-```
-
-# License
-
-MIT
+* [x] - 인간 아이콘 변경
+* [x] - 트래킹 강아지 1번 사진 변경
+* [x] - 트래킹 강아지 클릭시 전체 트래킹 사진들 팝업
+* [ ] - 할 수 있으면 넥스트 눌렀을 때 다음 위치로
+* [x] - 강아지 선택 표시 발바닥 -> 셀렉트
+* [x] - 하부 가라 프로그래시브

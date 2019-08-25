@@ -1,7 +1,7 @@
 {
-  "short_name": "Remeet",
-  "name": "Remeet",
-  "swtart_url": "/",
+  "short_name": "WeMeet",
+  "name": "WeMeet",
+  "start_url": "/",
   "icons": [
     {
       "src": "/asset/apple-touch-icon-57x57.png",
@@ -46,6 +46,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "rgba(23, 198, 165,1)",
   "background_color": "#ffffff"
 }

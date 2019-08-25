@@ -12,6 +12,9 @@ import { Checkbox } from "antd";
 import { RouteChildrenProps } from "react-router";
 import ChooseLocation from "../assets/chooseLocation.png";
 import ChooseTime from "../assets/chooseTime.png";
+import Dot1 from "../assets/dot1.png";
+import Dot2 from "../assets/dot2.png";
+import Dot3 from "../assets/dot3.png";
 
 interface Props extends RouteChildrenProps {}
 
@@ -67,7 +70,11 @@ const CustomCheckbox = styled(Checkbox)`
   font-size: 1.5rem;
 `;
 
-const FormImage = styled.img``;
+const FormImage = styled.img`
+  width: 100%;
+`;
+
+const DotProgress = styled.img``;
 
 class Register extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -79,6 +86,7 @@ class Register extends React.Component<Props, State> {
   render() {
     return (
       <Flicking
+        id="flicking"
         tag="div"
         onNeedPanel={(e: NeedPanelEvent) => {}}
         onMoveStart={(e: FlickingEvent) => {}}
@@ -121,7 +129,7 @@ class Register extends React.Component<Props, State> {
               <br />
               pet did you lose?
             </Subtitle>
-            <CustomCheckbox checked={true}>Charles</CustomCheckbox>
+            <CustomCheckbox>Charles</CustomCheckbox>
             <CustomCheckbox>Wang Wang</CustomCheckbox>
           </TopSection>
           <BottomSection>
@@ -133,6 +141,7 @@ class Register extends React.Component<Props, State> {
             >
               NEXT
             </Button>
+            <DotProgress src={Dot1} />
           </BottomSection>
         </Container>
 
@@ -143,8 +152,8 @@ class Register extends React.Component<Props, State> {
               <br />
               did you lose?
             </Subtitle>
+            <FormImage src={ChooseLocation} />
           </TopSection>
-          <FormImage src={ChooseLocation} />
           <BottomSection>
             <Button
               onClick={() => {
@@ -155,6 +164,7 @@ class Register extends React.Component<Props, State> {
             >
               NEXT
             </Button>
+            <DotProgress src={Dot2} />
           </BottomSection>
         </Container>
         <Container>
@@ -164,8 +174,8 @@ class Register extends React.Component<Props, State> {
               <br />
               did you lose?
             </Subtitle>
+            <FormImage src={ChooseTime} />
           </TopSection>
-          <FormImage src={ChooseTime} />
           <BottomSection>
             <Button
               style={{ color: "white", background: "rgba(23, 198, 165, 1)" }}
@@ -173,6 +183,7 @@ class Register extends React.Component<Props, State> {
             >
               Regist
             </Button>
+            <DotProgress src={Dot3} />
           </BottomSection>
         </Container>
       </Flicking>

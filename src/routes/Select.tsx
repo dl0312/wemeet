@@ -130,6 +130,7 @@ interface State {
   name: string;
   place: string;
   time: string;
+  selected: number[];
 }
 
 const cards = [
@@ -156,7 +157,8 @@ class Select extends React.Component<Props, State> {
     this.state = {
       name: "Chales",
       place: "Pyengcon-dong",
-      time: "13:35pm"
+      time: "13:35pm",
+      selected: []
     };
   }
   render() {
@@ -226,9 +228,21 @@ class Select extends React.Component<Props, State> {
         >
           {" "}
           {cards.map((card, index) => (
-            <AnimalCard imageSrc={card.imageSrc} key={index}>
+            <AnimalCard
+              onClick={() =>
+                this.setState({ selected: [...this.state.selected, index] })
+              }
+              imageSrc={card.imageSrc}
+              key={index}
+            >
               <MapButton>
-                <MapIcon className="fas fa-paw" />
+                <MapIcon
+                  className={
+                    this.state.selected.indexOf(index) <= -1
+                      ? "fas fa-paw"
+                      : "fas fa-check"
+                  }
+                />
               </MapButton>
               <UpperSection />
               <BottomSection>

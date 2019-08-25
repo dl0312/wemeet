@@ -3,12 +3,15 @@ import MapContainer from "../components/MapContainer";
 import { markers } from "../data/markers";
 
 import { GoogleApiWrapper } from "google-maps-react";
-import Dog1 from "../assets/dog1.jpg";
+import Dog4 from "../assets/dog4.jpg";
 import Dog2 from "../assets/dog2.jpg";
 import Dog3 from "../assets/dog3.jpeg";
 import Flicking from "@egjs/react-flicking";
 import { Fade } from "@egjs/flicking-plugins";
 import styled from "styled-components";
+import Popup1 from "../assets/popup1.jpg";
+import Popup2 from "../assets/popup2.jpg";
+import Popup3 from "../assets/popup3.jpg";
 
 const AnimalCard = styled.div`
   background: url(${({ imageSrc }) => imageSrc});
@@ -51,22 +54,24 @@ const cards = [
   {
     place: "Pyengcon-dong, Anyang-si, Geonggi-do",
     time: "13:35pm",
-    imageSrc: Dog1,
+    imageSrc: Dog4,
     color: "#00d1a9"
   },
   {
     place: "Pyengcon-dong, Anyang-si, Geonggi-do",
-    time: "13:35pm",
+    time: "13:22pm",
     imageSrc: Dog2,
     color: "rgba(112, 158, 252,1)"
   },
   {
     place: "Pyengcon-dong, Anyang-si, Geonggi-do",
-    time: "13:35pm",
+    time: "13:43pm",
     imageSrc: Dog3,
     color: "rgba(252, 192, 112, 1)"
   }
 ];
+
+const popupCards = [Popup1, Popup2, Popup3];
 
 const UpperSection = styled.div`
   padding: 1rem;
@@ -102,11 +107,13 @@ const ColorBall = styled.div`
   width: 1rem;
   height: 1rem;
   margin-right: 0.5rem;
+  box-shadow: 0px 0px 7px 3px rgba(255, 255, 255, 1);
 `;
 
 const Time = styled.span`
   font-size: 1.2rem;
   font-weight: 700;
+  text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
 `;
 
 const FlickerContainer = styled.div`
@@ -115,12 +122,36 @@ const FlickerContainer = styled.div`
   bottom: 1rem;
 `;
 
+const DarkBackground = styled.div`
+  background: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  z-index: 2001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const ExitIcon = styled.i`
+  position: absolute;
+  font-size: 2rem;
+  top: 1rem;
+  right: 1rem;
+  color: white;
+`;
+
 const googleMapsApiKey = "AIzaSyA1eXxSrO4j576TyyTHplmUopdD7hEnItI";
+
+let myVar;
 
 class Tracking extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isPopupOpen: false,
       currentIndex: 0,
       places: [...markers[0].data]
     };
@@ -128,7 +159,7 @@ class Tracking extends Component {
   componentDidMount = () => {
     console.log(this.state.places);
     for (let i = 0; i < markers[this.state.currentIndex].data.length; i++) {
-      setTimeout(() => {
+      myVar = setTimeout(() => {
         this.setState({
           places: [...markers[this.state.currentIndex].data.slice(0, i)]
         });
@@ -140,7 +171,7 @@ class Tracking extends Component {
     if (prevState.currentIndex !== this.state.currentIndex) {
       console.log(this.state.places);
       for (let i = 0; i < 9; i++) {
-        setTimeout(() => {
+        myVar = setTimeout(() => {
           this.setState({
             places: [...markers[this.state.currentIndex].data.slice(0, i)]
           });
@@ -149,8 +180,48 @@ class Tracking extends Component {
     }
   };
   render() {
+    const { isPopupOpen } = this.state;
     return (
       <>
+        {isPopupOpen && (
+          <DarkBackground>
+            <ExitIcon
+              onClick={() => this.setState({ isPopupOpen: false })}
+              className="far fa-times-circle"
+            />
+            <Flicking
+              tag="div"
+              classPrefix="eg-flick"
+              deceleration={0.0075}
+              horizontal={true}
+              circular={false}
+              infinite={false}
+              infiniteThreshold={0}
+              lastIndex={Infinity}
+              threshold={40}
+              duration={100}
+              panelEffect={x => 1 - Math.pow(1 - x, 3)}
+              defaultIndex={0}
+              inputType={["touch", "mouse"]}
+              thresholdAngle={45}
+              bounce={10}
+              autoResize={false}
+              adaptive={false}
+              bound={false}
+              overflow={true}
+              hanger={"50%"}
+              anchor={"50%"}
+              gap={5}
+              moveType={{ type: "snap", count: 1 }}
+              collectStatistics={true}
+              plugins={[new Fade()]}
+            >
+              {popupCards.map((card, index) => (
+                <AnimalCard imageSrc={card} key={index} />
+              ))}
+            </Flicking>
+          </DarkBackground>
+        )}
         <MapContainer
           key={this.state.currentIndex}
           lineColor={markers[this.state.currentIndex].color}
@@ -158,6 +229,7 @@ class Tracking extends Component {
           defaultZoom={17}
           places={this.state.places}
           google={this.props.google}
+          currentIndex={this.state.currentIndex}
         />
         <FlickerContainer>
           <Flicking
@@ -191,7 +263,14 @@ class Tracking extends Component {
             plugins={[new Fade()]}
           >
             {cards.map((card, index) => (
-              <AnimalCard imageSrc={card.imageSrc} key={index}>
+              <AnimalCard
+                imageSrc={card.imageSrc}
+                key={index}
+                onClick={() => {
+                  clearTimeout(myVar);
+                  this.setState({ isPopupOpen: true });
+                }}
+              >
                 <UpperSection>
                   <ColorBall style={{ background: card.color }} />
                   <Time>{card.time}</Time>
