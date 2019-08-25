@@ -52,19 +52,19 @@ const MapIcon = styled.i`
 
 const cards = [
   {
-    place: "Pyengcon-dong, Anyang-si, Geonggi-do",
+    place: "Manmen Residential District, Ningbo",
     time: "13:35pm",
     imageSrc: Dog4,
     color: "#00d1a9"
   },
   {
-    place: "Pyengcon-dong, Anyang-si, Geonggi-do",
+    place: "Haishu Qu , Ningbo",
     time: "13:22pm",
     imageSrc: Dog2,
     color: "rgba(112, 158, 252,1)"
   },
   {
-    place: "Pyengcon-dong, Anyang-si, Geonggi-do",
+    place: "Drum Tower , Ningbo",
     time: "13:43pm",
     imageSrc: Dog3,
     color: "rgba(252, 192, 112, 1)"

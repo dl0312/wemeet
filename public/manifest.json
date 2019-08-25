@@ -3,48 +3,48 @@
   "name": "WeMeet",
   "icons": [
     {
-      "src": "asset/apple-icon-57x57.png",
+      "src": "/asset/apple-touch-icon-57x57.png",
       "size": "57x57",
       "type": "image/png"
     },
     {
-      "src": "asset/apple-icon-60x60.png",
+      "src": "/asset/apple-touch-icon-60x60.png",
       "size": "60x60",
       "type": "image/png"
     },
     {
-      "src": "asset/apple-icon-72x72.png",
+      "src": "/asset/apple-touch-icon-72x72.png",
       "size": "76x76",
       "type": "image/png"
     },
     {
-      "src": "asset/apple-icon-76x76.png",
+      "src": "/asset/apple-touch-icon-76x76.png",
       "size": "76x76",
       "type": "image/png"
     },
     {
-      "src": "asset/apple-icon-114x114.png",
+      "src": "/asset/apple-touch-icon-114x114.png",
       "size": "114x114",
       "type": "image/png"
     },
     {
-      "src": "asset/apple-icon-120x120.png",
+      "src": "/asset/apple-touch-icon-120x120.png",
       "size": "120x120",
       "type": "image/png"
     },
     {
-      "src": "asset/apple-icon-144x144.png",
+      "src": "/asset/apple-touch-icon-144x144.png",
       "size": "144x144",
       "type": "image/png"
     },
     {
-      "src": "asset/apple-icon-152x152.png",
+      "src": "/asset/apple-touch-icon-152x152.png",
       "size": "152x152",
       "type": "image/png"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "rgba(23, 198, 165, 1)",
   "background_color": "#ffffff"
 }

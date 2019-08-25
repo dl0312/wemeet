@@ -135,17 +135,17 @@ interface State {
 
 const cards = [
   {
-    place: "Pyengcon-dong, Anyang-si, Geonggi-do",
+    place: "Manmen Residential District, Ningbo",
     time: "13:35pm",
     imageSrc: Dog4
   },
   {
-    place: "Pyengcon-dong, Anyang-si, Geonggi-do",
+    place: "Haishu Qu , Ningbo",
     time: "13:35pm",
     imageSrc: Dog2
   },
   {
-    place: "Pyengcon-dong, Anyang-si, Geonggi-do",
+    place: "Drum Tower , Ningbo",
     time: "13:35pm",
     imageSrc: Dog3
   }
