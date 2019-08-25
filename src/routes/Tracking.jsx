@@ -211,13 +211,17 @@ class Tracking extends Component {
               overflow={true}
               hanger={"50%"}
               anchor={"50%"}
-              gap={5}
+              gap={25}
               moveType={{ type: "snap", count: 1 }}
               collectStatistics={true}
               plugins={[new Fade()]}
             >
               {popupCards.map((card, index) => (
-                <AnimalCard imageSrc={card} key={index} />
+                <AnimalCard
+                  style={{ height: "30rem", backgroundSize: "auto 100%" }}
+                  imageSrc={card}
+                  key={index}
+                />
               ))}
             </Flicking>
           </DarkBackground>

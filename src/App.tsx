@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Router from "./Router";
 import { GlobalStyle } from "./global-styles";
 import { ToastContainer } from "react-toastify";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import ScrollToTop from "./utils/ScrollToTop";
 
 const AppContainer = styled.div``;
@@ -19,13 +19,13 @@ const App: React.SFC = () => {
         hideProgressBar={true}
         pauseOnHover={true}
       />
-      <BrowserRouter>
+      <HashRouter>
         <ScrollToTop>
           <AppContainer className="app">
             <Router />
           </AppContainer>
         </ScrollToTop>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 };
