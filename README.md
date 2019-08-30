@@ -7,11 +7,11 @@
 
 > Find your lost pet **instantly** with flying **drone** and **AI**
 
-### 🏆 Prize
+## 🏆 Prize
 
 - 2019 Ningbo Open Source Space CN-KR Hackathon - Excellect Work
 
-### 🐱 Team **WICO**
+## 🐱 Team **WICO**
 
 <div align="center">
 <img src="./contents/team.jpg">
@@ -23,7 +23,7 @@
 - 최준식 - Backend
 - 한준모 - AI
 
-### 🗂 Presentation
+## 🗂 Presentation
 
 <div align="center">
 <img src="./contents/presentation/WeMeet Presentation-01.jpg">
