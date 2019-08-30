@@ -1,10 +1,42 @@
 # 🐱 WeMeet 🐶
 
 <div align="center">
-<img width="200" style="margin-right: 1rem" src="./src/assets/Logo.png"/>
+<img width="200" style="margin-right: 1rem" src="./contents/Logo.png"/>
+<img src="./contents/img.png">
 </div>
 
 > Find your lost pet **instantly** with flying **drone** and **AI**
+
+### 🏆 Prize
+
+- 2019 Ningbo Open Source Space CN-KR Hackathon - Excellect Work
+
+### 🐱 Team **WICO**
+
+<div align="center">
+<img src="./contents/team.jpg">
+</div>
+
+- 김지은 - Backend & AI
+- 강지인 - Design
+- 이건 - Frontend
+- 최준식 - Backend
+- 한준모 - AI
+
+### 🗂 Presentation
+
+<div align="center">
+<img src="./contents/presentation/WeMeet Presentation-01.jpg">
+<img src="./contents/presentation/WeMeet Presentation-02.jpg">
+<img src="./contents/presentation/WeMeet Presentation-03.jpg">
+<img src="./contents/presentation/WeMeet Presentation-04.jpg">
+<img src="./contents/presentation/WeMeet Presentation-05.jpg">
+<img src="./contents/presentation/WeMeet Presentation-06.jpg">
+<img src="./contents/presentation/WeMeet Presentation-07.jpg">
+<img src="./contents/presentation/WeMeet Presentation-08.jpg">
+<img src="./contents/presentation/WeMeet Presentation-09.jpg">
+<img src="./contents/presentation/WeMeet Presentation-10.jpg">
+</div>
 
 ## Problem
 
